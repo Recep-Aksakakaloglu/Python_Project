@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
+from tkinter import messagebox
 import random
 import re
+import math
 
 # Grafik verileri
 #x = [10, 15, 20, 25, 30]
@@ -56,6 +58,9 @@ def bubble_sort(index=0):
             panel.after(speed_slider.get(), bubble_sort, index + 1)
 
 def selection_sort(index=0):
+    global sorting_in_progress
+    global comparison_count
+
     if index < len(y):
         min_idx = index
         for j in range(index+1, len(y)):
@@ -68,6 +73,9 @@ def selection_sort(index=0):
             panel.after(speed_slider.get(), selection_sort, index + 1)
 
 def insertion_sort(index=1):
+    global sorting_in_progress
+    global comparison_count
+
     if index < len(y):
         key = y[index]
         j = index - 1
@@ -81,6 +89,9 @@ def insertion_sort(index=1):
             panel.after(speed_slider.get(), insertion_sort, index + 1)
 
 def merge_sort(arr):
+    global sorting_in_progress
+    global comparison_count
+
     index = 1
     if len(arr) > index:
         mid = len(arr) // 2
@@ -101,6 +112,8 @@ def merge_sort(arr):
                 j += 1
             k += 1
 
+
+
         while i < len(L):
             arr[k] = L[i]
             i += 1
@@ -110,11 +123,12 @@ def merge_sort(arr):
             arr[k] = R[j]
             j += 1
             k += 1
-
-        # Sıralama adımını görselleştir
+        comparison_count += 1
         create_graph()
         if sorting_in_progress:
             panel.after(500)
+
+
 
 def partition(arr, low, high):
     i = low - 1
@@ -125,6 +139,7 @@ def partition(arr, low, high):
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
 
+        comparison_count += 1
         create_graph()
         if sorting_in_progress:
             panel.after(100)
@@ -132,6 +147,9 @@ def partition(arr, low, high):
 
     return i + 1
 def quick_sort(arr, low, high):
+    global sorting_in_progress
+    global comparison_count
+
     if low < high:
         pi = partition(arr, low, high)
         quick_sort(arr, low, pi - 1)
@@ -140,7 +158,7 @@ def quick_sort(arr, low, high):
 def perform_complexity_analysis():
     n = len(y)  # Veri dizisinin uzunluğu
     complexity = n**2
-    complexity_label.config(text="Sıralama Karmaşıklığı: O(n^2)")
+    complexity_label.config(text=f"Sıralama Karmaşıklığı: O(n^2)\nKarşılaştırma Sayısı: {comparison_count}")
 
 def perform_sort():
     selected_algorithm = var.get()
@@ -175,7 +193,7 @@ def add_data():
         create_graph()
         entry.delete(0, tk.END)
     except ValueError:
-        print("Geçersiz giriş!")
+        messagebox.showerror("Hata", "Lütfen bir sayı girin.")
 
 def generate_random_data():
     try:
@@ -188,7 +206,7 @@ def generate_random_data():
         colors = generate_colors(count)
         create_graph()
     except ValueError:
-        print("Geçersiz giriş!")
+        messagebox.showerror("Hata", "Lütfen bir sayı girin.")
 
 def start_sort():
     global sorting_in_progress
