@@ -1,1 +1,2 @@
-# Python_Project
+# Sorting Algorithms By Python
+## Proje Konusu
