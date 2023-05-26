@@ -38,3 +38,26 @@ Bu projenin amacı kullanıcının sıralama algoritmalarını ve grafik türler
 ## Kullanılan Teknolojiler
 ### A. Python
 ![alt text](https://github.com/Recep-Aksakakaloglu/Python_Project/blob/main/python.png)
+* Python, nesne yönelimli, yorumlamalı, birimsel (modüler) ve etkileşimli yüksek seviyeli bir programlama dilidir.
+* Girintilere dayalı basit söz dizimi, dilin öğrenilmesini ve akılda kalmasını kolaylaştırır. Bu da ona söz diziminin ayrıntıları ile vakit yitirmeden programlama yapılmaya başlanabilen bir dil olma özelliği kazandırır.
+* Modüler yapısı, sınıf dizgesini (sistem) ve her türlü veri alanı girişini destekler. Hemen hemen her türlü platformda çalışabilir (Unix, Linux, Mac, Windows, Amiga, Symbian). Python ile sistem programlama, kullanıcı arabirimi programlama, ağ programlama, web programlama, uygulama ve veri tabanı yazılımı programlama gibi birçok alanda yazılım geliştirebilirsiniz.
+
+### B. MatPlotLib
+![alt_text](https://github.com/Recep-Aksakakaloglu/Python_Project/blob/main/matplotlib.png)
+* Matplotlib.pyplot, python programlama dilinde 2D grafikler için kullanılan bir çizim kitaplığıdır. Python komut dosyalarında, kabukta, web uygulama sunucularında ve diğer grafik kullanıcı arayüzü araç setlerinde kullanılabilir.
+### C. Tkinter
+![alt_text](https://github.com/Recep-Aksakakaloglu/Python_Project/blob/main/tkinter.jpeg)
+* Tkinter, Python kurulumu ile birlikte gelen ve pencereli-menülü modern programlar yazmamızı sağlayan grafik arayüz geliştirme takımlarından biridir. 
+
+## Projenin Gerçekleştirilmesi
+* Proje tek sayfadan oluşmaktadır. Tasarımdan çok işleyişin çn plana çıkmasını hedeflediğimiz bu sayfada grafik alanı, buton, textbox, radio butonlar ve bir adet slider buton  bulunmaktadır
+* Öncelikli olarak uygulama bizden grafik oluşturmamızı istemektedir. Oluşturacağımız grafik için üç seçeneğimiz vardır. Bunlar çubuk grafiği, nokta grafiği ve stem diye belirttiğimiz çizgi grafiğidir. Bu seçimi yapmak için kullanıcıya üç adet radio buton sunulmaktadır. Bu üç seçenekten birini seçtikten sonra yapmanız gereken bir tercih daha bulunmaktadır. Grafik değerlerini elle mi yoksa random olarak mı atayacağınız. Gerekli seçimi yapıp butona tıkladıktan sonra bu işlem kod tarafında sizi grafik oluşturma metoduna yönlendirecektir. Bu metodun içerisinde if elif koşşulları bulunmaktadır. Yaptığınız seçime veya girdiğiniz grafik değerlerine göre for döngüsü yardımı ile size istediğiniz grafiği oluşturmaktadır.
+* Sonrasında 5 farklı radio buton arasında sıralama seçeneği sunulmaktadır. Bu beş seçenek için arka planda ayrı ayrı metodlar tanımlanmıştır. Metodlar içerisinde index değişkenleri bulunmaktadır bu değişkenin amacı grafik sütunlarının ya da çizgilerinin hangi sırayla sıralanacağını belirlemek için kullanılır. 
+* Örnek vermek gerekirse buble sortta her eleman doğru olduğunda index değeri otomatik olarak 1 artmaktadır.
+* For döngüsü ile içerisinde sayacımız yardımı ile değişim sayısı hesaplanmaktadır.
+* Verileri temizleme butonu refresh butonu görevi görmektedir yani sonuçlar gösterildikten sonra command ile temizleme metoduna gider ve grafiğin x ve y kordinatlarını .clear ile temizler.
+* Rastege sayı üretmek için for döngüsü ile eleman sayısına kadar tek tek arttırarak  x düzlemine sayılar eklenir sonrasında random.randint(1, 100) komutu ile istenildiği kadar 1 ve 100 arasında random sayılar üretmektedir.
+* Verileri grafiğe eklerken ise kinter kullanarak oluşturulan bir arayüzde bulunan bir giriş kutusundan değer alarak x ve y listelerine veri eklemeyi sağlar. Ardından create_graph() fonksiyonunu çağırarak grafikleri günceller ve giriş kutusunu temizler. 
+
+## Uygulama Görseli
+![alt_text](https://github.com/Recep-Aksakakaloglu/Python_Project/blob/main/program.png)
